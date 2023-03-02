@@ -1,0 +1,26 @@
+    Prima data se deschid fisierele de input/output, se creeaza lista de utilizatori ai primariei si cele 5 birouri
+corespunzatoare tipurilor(biroul este generic).
+    ~adauga_utilizator~
+    Se afla tipul utilizatorului si se adauga in lista, creandu-se o entitate de acel tip.
+    ~adauga_cerere~
+    Dupa ce se parseaza data si se afla tipul de cerere, este prinsa intr-un try-catch metoda din clasa Utilizator de a
+genera textul cererii. Daca tipul cererii este eligibil cu instanta utilizatorului, se apeleaza constructorul cererii, se adauga
+cererea in lista de asteptare a userului si in biroul specific(s a creat o coada de prioritati si un comparator in functie de prioritate,
+iar apoi de data); in caz contrar, este scris in fisier mesajul exceptiei.
+!!Am ales drept colectie pentru cereri de asteptare si solutionate ale utilizatorului un treeset, pentru a avea ordonate cererile la afisare.
+    ~afiseaza_cereri_in_asteptare/finalizate~
+    Se itereaza prin lista de utilizatori, se gaseste cel cautat si se apeleaza metoda de afisare a cererilor(parcurge lista, parseaza
+data si returneaza un string ce este scris in fisierul de output).
+    ~retrage_cerere~
+    Se cauta utilizatorul in lista si se da remove la cererea de la data respectiva din lista de cereri ale userului si din cea a biroului
+specific.
+    ~afiseaza_cereri~
+    Gaseste biroul specific si apeleaza metoda de afisare a cererilor. Fiind o coada de prioritati, ordinea nu este mentinuta, iar pentru
+afisarea corecta este nevoie sa se dea poll pana coada ramane goala. Din acest motiv este necesara o copie pentru coada in care se va
+adauga dupa acelasi criteriu de comparare element cu element, iar la final coada goala va deveni, dupa afisare, copia.
+    ~rezolva_cerere~
+    Se apeleaza metoda de rezolvare a cererii din biroul specific. Aceasta ia prima cerere din lista cererilor din birou, creeaza un file
+cu numele functionarului care o rezolva, ce este dat ca parametru, scrie detaliile necesare si ii da remove din lista de cereri a biroului.
+Clasa cerere avand user ca si atribut, se apeleaza metoda de adaugare in cererile solutionate si de eliminare din cele de asteptare din
+clasa Utilizator.
+    La final, se inchid fisierele.
